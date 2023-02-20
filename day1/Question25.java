@@ -1,18 +1,17 @@
 package day1;
 
-public class SimplePrograms7 {
+public class Question25 {
 
 	public static void main(String[] args) {
-		// 
+		// TODO Auto-generated method stub
 		Derived dObj=new Derived();
 		dObj.useD();
 	}
 
 }
-
 protected class base{
 	String method() {
-		return"Hello";
+		return "Hello";
 	}
 }
 class Derived{

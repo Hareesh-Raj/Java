@@ -1,33 +1,6 @@
 package day1;
 
-import java.util.*;
-public class SimpleProgrmas5 {
-	public static int[] reverse(int[] arr)
-	{
-		int i=0;
-		int n=arr.length;
-		while(i<n/2)
-		{
-			int t=arr[i];
-			arr[i]=arr[n-i-1];
-			arr[n-i-1]=t;
-			i++;
-		}
-		return arr;
-	}
-	public static int Max(int[] arr)
-	{
-		int max=arr[0];
-		int n=arr.length;
-		for(int i=1;i<n;i++)
-		{
-			if(arr[i]>max)
-			{
-				max=arr[i];
-			}
-		}
-		return max;
-	}
+public class Question21 {
 	public static void print(int val)
 	{
 		switch(val)
@@ -118,35 +91,8 @@ public class SimpleProgrmas5 {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[][] arr=new int[][] {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};
-		Scanner sc=new Scanner(System.in);
-		
-		//19.
-		for(int i=0;i<3;i++)
-		{
-			arr[i]=reverse(arr[i]);
-		}
-		for(int i=0;i<3;i++)
-		{
-			for(int j=0;j<5;j++)
-			{
-				System.out.print(arr[i][j]+" ");
-			}
-			System.out.println();
-		}
-		//20.
-		int[] max=new int[3];
-		for(int i=0;i<3;i++)
-		{
-			max[i]=Max(arr[i]);
-			System.out.println(max[i]);
-		}
-		
-		//21.
-		int year=sc.nextInt();
+		int year=2004;
 		printDays(year);
-		
-
 	}
 
 }

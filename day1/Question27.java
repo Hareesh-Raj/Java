@@ -1,22 +1,9 @@
 package day1;
 
-public class SimplePrograms8 {
+public class Question27 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//26.
-		int i=243;
-		int j=-243;
-		// In question
-//		if(i==j);
-//		System.out.println("numbers are same");
-		if(i==j)
-		{
-			System.out.println("numbers are same..");
-		}
-		
-		//27.
-		
 		double d=14000;
 		System.out.println("Initial Amount.. "+d);
 		double first_yr=14000+(d*0.4);
