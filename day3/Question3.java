@@ -6,13 +6,19 @@ public class Question3 {
 		// TODO Auto-generated method stub
 		FixedStack obj=new FixedStack();
 		DynamicStack obj2=new DynamicStack(5);
-		
+		System.out.println("Fixed");
 		obj.push(10);
+		obj.push(11);
+		obj.push(12);
+		obj.push(13);
+		System.out.println("popped...");
 		obj.pop();
-		
+		System.out.println();
+		obj.pop();
+//		System.out.println("Dynamic");
 //		obj2.push(3);
 //		obj2.pop();
-//		System.out.println(obj.pop());
+//		System.out.println(obj2.pop());
 		
 	}
 
@@ -48,13 +54,24 @@ class FixedStack extends EdgeCases implements Stack{
 		}
 		else
 		{
-			System.out.println("Pushed");
+			display(top);
+			System.out.println("After Pushing");
+			
 		}
+		
 		
 	}
 	public int pop()
 	{
+		display(top-1);
 		return !isEmpty(top)?st[top--]:-1;
+	}
+	public void display(int t)
+	{
+		for(int i=0;i<=t;i++)
+		{
+			System.out.print(st[i]+" ");
+		}
 	}
 }
 

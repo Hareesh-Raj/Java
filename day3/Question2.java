@@ -20,7 +20,7 @@ interface calcVolume{
 }
 
 
-class Circle implements calcArea{
+class Circle implements calcArea {
 	final float pi=3.14f;
 	public float area(int ...dimension)
 	{
