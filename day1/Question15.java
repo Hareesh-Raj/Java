@@ -21,9 +21,10 @@ public class Question15 {
 		{
 			if(arr[i]==0)
 			{
-				System.out.println(i);
+				System.out.print(i+" ");
 			}
 		}
+		System.out.println();
 	}
 	
 	// Armstrong Number
@@ -32,9 +33,11 @@ public class Question15 {
 	{
 		double copy=n;
 		double val=0;
+		String str=n+"";
+		
 		while(n!=0)
 		{
-			val+=Math.pow(n%10,3);
+			val+=Math.pow(n%10,str.length());
 			n=n/10;
 		}
 		if(copy==val)
@@ -84,15 +87,16 @@ public class Question15 {
 		// TODO Auto-generated method stub
 		primenumbers(100);
 		//15.b
-		if(armstrong(5))
+		int number=153;
+		if(armstrong(number))
 		{
 			System.out.println("Armstrong Number");
 		}
-		else if(perfect(34))
+		else if(perfect(number))
 		{
 			System.out.println("Perfect Number");
 		}
-		else if(palindrome(234))
+		else if(palindrome(number))
 		{
 			System.out.println("Palindrome");
 		}
