@@ -10,11 +10,11 @@ public class Question5 extends Thread{
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ExecutorService es=Executors.newFixedThreadPool(1);
-		es.execute(()->{
-			System.out.println("Helloo");
-		});
-		es.shutdown();
+//		ExecutorService es=Executors.newFixedThreadPool(1);
+//		es.execute(()->{
+//			System.out.println("Helloo");
+//		});
+//		es.shutdown();
 //		es.execute(()->{});
 		
 		Question5 obj=new Question5();

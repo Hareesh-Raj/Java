@@ -62,6 +62,7 @@ class DigitalClock{
 					e.printStackTrace();
 				}
 				System.out.println(hrs+":"+min+":"+i);
+				
 			}
 			sec=i;
 			notifyAll();
