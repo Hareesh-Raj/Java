@@ -1,71 +1,69 @@
 package Exercise3;
 
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+/**
+ * @author Hareesh Raj Ramanathan
+ * 
+ * This Program is to print count of the character in the string" .
+ *  
+  */
 public class Question6 {
-
+	public static void removeDup(ThreadException obj,String str)
+	{
+		int i;
+		for(i=0;i<str.length();i++) {
+			
+		try {
+			obj.count(str.charAt(i));
+		}
+		catch(IllegalInputException e) {
+		System.out.println(str.charAt(i)+""+e+"Second");	
+		}
+		}
+	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ThreadException obj=new ThreadException();
 		ExecutorService es=Executors.newFixedThreadPool(3);
+		Scanner sc=new Scanner(System.in);
 		es.execute(()->{
 			synchronized(obj) {
-				String str="hello";
-				for(int i=0;i<str.length();i++)
-				{
-					try {
-						obj.count(str.charAt(i));
-					}
-					catch(IllegalInputException e) {
-					System.out.println(e);	
-					}
-					}
+				System.out.println("Enter the string1 to evaluate..");
+				String str=sc.next();
+				removeDup(obj,str);
 				obj.result();
 			}
-			
 			});
 		es.execute(()->{
 			synchronized(obj)
 			{
 				ThreadException.countChar=0;
-				int i;
-				String str="abi4567%";
-				for( i=0;i<str.length();i++)
-				{
-					try {
-						obj.count(str.charAt(i));
-					}
-					catch(IllegalInputException e) {
-					System.out.println(str.charAt(i)+""+e+"Second");	
-					}
-					}
+				
+				System.out.println("Enter the string2 to evaluate..");
+				String str=sc.next();
+				removeDup(obj,str);
 				obj.result();
 			}
-			
 			});
 		es.execute(()->{
 			synchronized(obj)
 			{
-				int i;
 				ThreadException.countChar=0;
-				String str="34dsfsg";
-				for(i=0;i<str.length();i++)
-				{
-					try {
-						obj.count(str.charAt(i));
-					}
-					catch(IllegalInputException e) {
-						System.out.println(str.charAt(i)+""+e+"Third");	
-					}
-					}
+				System.out.println("Enter the string3 to evaluate..");
+				String str=sc.next();
+				removeDup(obj,str);
 				obj.result();
 			}
 			});
 		es.shutdown();
-		
 }
 }
+/**
+ * @param ch is used to check the character is a alphabet or number
+ * if it is not character throw a new exception  
+ *  
+  */
 class ThreadException {
 	static int countChar;
 	public void count(char ch) throws IllegalInputException
@@ -83,6 +81,10 @@ class ThreadException {
 		System.out.println("There are"+countChar+"Characters....");
 	}
 }
+/**
+ * This class is to create a new exception" .
+ *  
+  */
 class IllegalInputException extends Exception{
 	String msg;
 	public IllegalInputException(String msg) {
@@ -90,7 +92,6 @@ class IllegalInputException extends Exception{
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return msg;
 	}
 }

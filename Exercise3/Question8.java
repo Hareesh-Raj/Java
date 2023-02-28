@@ -1,9 +1,13 @@
   package Exercise3;
-
+  /**
+   * @author Hareesh Raj Ramanathan
+   * 
+   * This Program is to print the String A" .
+   *  
+    */
 public class Question8 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		StringBuffer sb=new StringBuffer("A");
 		
 		ThreadDemo thread1=new ThreadDemo(sb);

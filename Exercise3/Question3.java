@@ -2,11 +2,20 @@ package Exercise3;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+/**
+ * @author Hareesh Raj Ramanathan
+ * 
+ * This Program is to print the .
+ *  
+  */
 public class Question3 {
-
+	/**
+	 *  @param args is the argument unused.
+	 *  we execute produce method and consumer method
+	 *  we are closing the thread in line 33.
+	 * */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		ExecutorService es=Executors.newFixedThreadPool(2);
 		FactoryOutlet fot=new FactoryOutlet();
 		es.execute(()->{
@@ -16,7 +25,7 @@ public class Question3 {
 			}
 		});
 		es.execute(()->{
-			for(int i=0;i<5;i++)
+			for(int i=0;i<2;i++)
 			{
 				fot.consume();
 			}
@@ -28,6 +37,9 @@ public class Question3 {
 
 class FactoryOutlet{
 	int prodCount=0;
+	/**
+	 *  we execute produce method .
+	 * */
 	synchronized public void produce()
 	{
 		if( prodCount==1)
@@ -35,7 +47,7 @@ class FactoryOutlet{
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
@@ -43,6 +55,9 @@ class FactoryOutlet{
 		prodCount++;
 		notify();
 	}
+	/**
+	 *  we execute  consumer method.
+	 * */
 	synchronized public void consume()
 	{
 		if(prodCount==0)
@@ -50,7 +65,7 @@ class FactoryOutlet{
 			try {
 					wait();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+		
 					e.printStackTrace();
 			}
 		}
