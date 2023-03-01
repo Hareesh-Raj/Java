@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class VisitorPattern {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Hareesh obj=new Hareesh();
 		obj.reactions();
 	}
@@ -14,41 +14,25 @@ public class VisitorPattern {
 }
 
 class Hareesh{
-	String str;
 	Scanner sc=new Scanner(System.in);
+	String str;
 	public void reactions()
 	{
 		str=sc.next();
 		try {
-			Input.check(str);
-		}
-		catch(InputException e)
-		{
+			if(str.equals("BadDog")) {
+				new BadDog().reply();
+			}
+			else if(str.equals("BadGirl"))
+			{
+				new BadGirl().reply();
+			}
+		} catch (InputException e) {
 			e.visit();
 		}
-		finally {
-			sc.close();
-		}
 	}
 }
-class Input{
-	static Bad obj;
-	public static void check(String str) throws InputException
-	{
-		try {
-			str="Exercise4."+str;
-			obj=(Bad)Class.forName(str).getConstructor().newInstance();
-			obj.reply();
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException | ClassNotFoundException | NoClassDefFoundError e) {
-			// TODO Auto-generated catch block
-			System.out.println("No Problem...");
-		}
-		
-			
-		
-	}
-}
+
 
 abstract class Bad{
 	abstract public void reply() throws InputException;
@@ -56,24 +40,25 @@ abstract class Bad{
 
 class BadDog extends Bad{
 	public BadDog() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	@Override
 	public void reply() throws InputException{
 		throw new BadDogException("BadDog Exception..");
-	}
-	
+	}	
 }
 class BadGirl extends Bad{
 	public BadGirl() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	@Override
 	public void reply() throws InputException{
 		throw new BadGirlException("BadGirl Exception..");
 	}
 	
+	
 }
+
 
 abstract class InputException extends Exception{
 	

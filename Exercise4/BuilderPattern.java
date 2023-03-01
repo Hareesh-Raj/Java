@@ -4,8 +4,8 @@ public class BuilderPattern {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Phone ph=new Phone.BuildPhone().setScreenSize("16").setProcessor("snapdragon").buildPhone();
-		System.out.println(ph);
+//		Phone ph=new Phone.BuildPhone().setScreenSize("16").setProcessor("snapdragon").buildPhone();
+//		System.out.println(ph);
 		
 		Computer lap=new Computer.BuildComputer().setGraphicsCard("500 GB..").setNo_of_ports("5").setProcessor("M1 pro").setScreenSize("16").build();
 		System.out.println(lap); 

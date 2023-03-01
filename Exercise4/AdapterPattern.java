@@ -1,4 +1,4 @@
-package Exercise4;
+ package Exercise4;
 
 public class AdapterPattern {
 
@@ -13,7 +13,7 @@ public class AdapterPattern {
 		
 		
 		KamatachiPlug kp=new KamatachiPlug();
-		AmericanAdaoter ap=new AmericanAdaoter();
+		AmericanAdapter ap=new AmericanAdapter();
 		ap.accept(kp);
 		DaniSocket ds=new DaniSocket();
 		ds.slabPinHole(ap);
@@ -37,7 +37,7 @@ class IndianAdapter extends IndianPlug{
 	
 }
 
-class AmericanAdaoter extends AmericanPlug{
+class AmericanAdapter extends AmericanPlug{
 
 	IndianPlug ip;
 	public void accept(IndianPlug ip)
@@ -67,23 +67,6 @@ abstract class AmericanPlug{
 	abstract public void slabPin();
 }
 
-class SakthiSocket extends IndianSocket{
-
-	@Override
-	public void roundPinHole(IndianPlug ap) {
-		ap.roundPin();
-	}
-	
-}
-class LenovoPlug extends AmericanPlug{
-
-	@Override
-	public void slabPin() {
-		System.out.println("Charged Using slabpin");
-		
-	}
-	
-}
 
 class KamatachiPlug extends IndianPlug{
 
@@ -98,6 +81,25 @@ class DaniSocket extends AmericanSocket{
 	@Override
 	public void slabPinHole(AmericanPlug ap) {
 		ap.slabPin();
+		
+	}
+	
+}
+
+
+class SakthiSocket extends IndianSocket{
+
+	@Override
+	public void roundPinHole(IndianPlug ap) {
+		ap.roundPin();
+	}
+	
+}
+class LenovoPlug extends AmericanPlug{
+
+	@Override
+	public void slabPin() {
+		System.out.println("Charged Using slabpin");
 		
 	}
 	
