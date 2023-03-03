@@ -25,13 +25,13 @@ class Division{
 		{
 			System.out.println("Enter Numerator and Divisor");
 			numerator=sc.next();
-			divisor=sc.next();
 			if(numerator.toLowerCase().charAt(0)=='q')
-				{
-				System.out.println("Its End...");
-				break;
-				}
-			else {
+			{
+			System.out.println("Its End...");
+			break;
+			}
+			divisor=sc.next();
+			
 				try {
 					Input.check(numerator,divisor);
 					num=Integer.parseInt(numerator);
@@ -42,7 +42,6 @@ class Division{
 				{
 					e.visit()
 ;				}
-			}
 		}
 	}
 }
@@ -58,7 +57,7 @@ class Input {
 		{
 			throw new NullNumberError("There Should be a number...");	
 		} 
-		else if(!Character.isDigit(num.charAt(0)) || !Character.isDigit(div.charAt(0))){
+		else if(!isValid(num) || !isValid(div)){
 			throw new NonNumberError("The inputs must be a digit");
 		}
 		else if(div.charAt(0)=='0')
@@ -67,7 +66,19 @@ class Input {
 			throw new ZeroError("Divison by zero..");
 		}
 	}
-	
+	public static boolean isValid(String str)
+	{
+		for(int i=0;i<str.length();i++)
+		{
+			if(i==0 && str.charAt(i)=='-')
+				continue;
+			else if(!Character.isDigit(str.charAt(i)))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 }
 
 abstract class ErrorHandler{

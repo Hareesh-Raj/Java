@@ -16,6 +16,7 @@ class CalcAverage1{
 	int number;
 	int avg;
 	int count;
+	String str;
 	Scanner sc=new Scanner(System.in);
 	CalcAverage1()
 	{
@@ -28,13 +29,16 @@ class CalcAverage1{
 		for(int i=0;i<10;i++)
 		{
 			try {	
-				String str=sc.next();
+				str=sc.next();
 				Input1.check(str);
+				number=Integer.parseInt(str);
 			}
 			catch(InputException e)
 			{
+				i--;
 				e.visit();
 			}
+			
 			avg+=number;
 		}
 		return avg/count;

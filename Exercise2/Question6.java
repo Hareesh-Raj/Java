@@ -18,9 +18,16 @@ class Base{
 	}
 }
 class Derived extends Base{
-	public Derived() throws Exception
+	
+	public Derived() 
 	{
-		Base obj=new Base();
+//		super();
+		try {
+//			Base obj=new Base();
+		}
+		catch(Exception e) {
+			
+		}
 //		try {
 //			Base obj=new Base();
 //		}

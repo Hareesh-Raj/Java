@@ -18,8 +18,9 @@ class sample{
 	public void mth2()
 	{
 		try{
-			throw new NullPointerException();
-			return ;
+//			throw new NullPointerException();
+//			System.exit(0);
+			return;
 		}
 		catch(Exception e)
 		{
