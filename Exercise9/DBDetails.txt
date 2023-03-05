@@ -1,0 +1,50 @@
+
+
+  invoicetrans 
+  
+  create table invoicetrans 
+  (itemno int,
+  invoiceno varchar(30),
+  itemqty int,
+  primary key(itemno,invoiceno),
+  foreign key (invoiceno) references invoicemaster(invoiceno),
+ foreign key (itemno) references itemmaster(itemno));
+ 
+
+
+  itemmaster create -2
+  
+  create table itemmaster (
+  itemno int,
+ itemname varchar(30),
+  itemprice int,itemunit int,
+  primary key(itemno));
+ 
+
+
+ customer master create -1,
+ 
+ create table customermaster (
+ customerid varchar(30),
+ customername varchar(30),
+ customeraddress varchar(40),
+ primary key(customerid)
+ );
+ 
+
+	invoicemaster create -3
+  create table invoicemaster (
+  invoiceno varchar(30),
+  date date,customerid varchar(30),
+  primary key(invoiceno),
+  foreign key (customerid) references customermaster(customerid));
+ 
+ 
+ 
+ insert into itemmaster values(1,'dhal',200,'kg');
+ 
+ insert into invoicetrans values(1,'i1',200);
+ 
+ insert into invoicemaster values('i1','2023-11-12','c1');
+ 
+ insert into customermaster values('c2','raj','err');
