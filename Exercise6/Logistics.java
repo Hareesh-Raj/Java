@@ -1,7 +1,5 @@
 package Exercise6;
 
-import java.time.DayOfWeek;
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ public class Logistics {
 		Scanner sc=new Scanner(System.in);
 		KamatchiTransport travel=new KamatchiTransport();
 		
-		Lorry lorry=new Lorry("Ashok Leyland","TN 56 T 0007",80);
+		Lorry lorry=new Lorry("Ashok Leyland","TN 56 T 0007",90);
 		
 		Driver driver=new Driver(34,"Ram","DL202000");
 		
@@ -55,18 +53,33 @@ class KamatchiTransport extends Transport{
 		
 		int timetaken=(distance/lorry.max_speed)*60;
 		
+		/*
+		 * In this while loop we are checking the whether the lorry is started at the leave days if it so then we need to add the days accordingly 
+		 * because it will delay the time of delivery. 
+		 * */
+		
 		while(Time.isLeave(time))
 			{
 				time=time.plusDays(1);
-				System.out.println("helloo");
 			}
-		
+		/*
+		 * In this we are calculating the number of hours he can work on a the present day.
+		 * */
 			int remaining=Time.timeRemaining(time);
+			/*
+			 * If the work can be done in a same day then this condn will pass.
+			 * */
 			if(timetaken<=remaining)
 			{
 				time=time.plusMinutes(timetaken);
 				return time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))+"";
 			}
+			/*
+			 * Since the constraints given the lorry driver can work only 8 hrs per day.
+			 * so 8*60 = 480;
+			 * we are running the loop until we find that a work can be less than or equal to 8 hrs.
+			 * so that we can end it after calculating for the particular day. 
+			 * */
 			else
 			{
 				timetaken-=remaining;
@@ -78,6 +91,9 @@ class KamatchiTransport extends Transport{
 					 time=time.plusDays(1);
 				}
 			}
+			/*
+			 * Here we are checking the that the end day is a leave or not.
+			 * */
 			while(Time.isLeave(time))
 			{
 				time=time.plusDays(1);
@@ -160,6 +176,9 @@ class Time{
 	}
 	public static int timeRemaining(LocalDateTime datetime)
 	{
+		/*
+		 * we are calculating the reamining minutes in a single day 
+		 * since there is 1440 min in a single day we used it accordingly.*/
 		int hrs=datetime.getHour();
 		int min=datetime.getMinute();
 		int calcmin=1440-hrs*60-min;
