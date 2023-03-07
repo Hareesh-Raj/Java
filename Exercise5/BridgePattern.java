@@ -11,7 +11,7 @@ package Exercise5;
 public class BridgePattern {
 
 	public static void main(String[] args) {
-		Resturant customer=new AmericanResturant(new VeggiePizza());
+		Restaurant customer=new AmericanRestaurant(new VeggiePizza());
 		customer.deliver();
 	}
 
@@ -33,9 +33,9 @@ abstract class Pizza{
  * In this we are making a hierarchy of resturant in that we can create a hierarchy of many restruant.
  * In that we need to implement the deliver.
  */
-abstract class Resturant{
+abstract class Restaurant{
 	protected Pizza pizza;
-	protected Resturant(Pizza pizza)
+	protected Restaurant(Pizza pizza)
 	{
 		this.pizza=pizza;
 	}
@@ -54,9 +54,9 @@ abstract class Resturant{
 	}
 }
 
-class AmericanResturant extends Resturant{
+class AmericanResturant extends Restaurant{
 
-	protected AmericanResturant(Pizza pizza) {
+	protected AmericanRestaurant(Pizza pizza) {
 		super(pizza);
 		
 	}
